@@ -1,37 +1,38 @@
-# Linear Feedback Shift Register (LFSR)
+# Cellular Automaton Based Pseudo Random Number Generator (CA-based PRNG)
 
-> SystemVerilog LFSR module   
+> SystemVerilog CA-based PRNG module   
 
-Implementention in SystemVerilog of __Fibonacci and Galois LFSR__.  
+Implementention in SystemVerilog of __CA-based PRNG__.  
 
-Principle of operation and tap locations for maximum length realizations can be found in [Wikipedia](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) and [EE Times](https://www.eetimes.com/tutorial-linear-feedback-shift-registers-lfsrs-part-1/).
+Principle of operation of 1D cellular automaton can be found in [Mathworkd](https://mathworld.wolfram.com/ElementaryCellularAutomaton.html).
+Programmable CA-based PRNG
+	-Configurable number of CA array
+	-Configurable number of neighbors
+	-Configurable CA rule (i.e. 'rule 30', 'rule 150', etc.)
+	-Configurable pseudo random number width
 
 ## Get Started
 
 The source files  are located at the repository root:
 
-- [Linear Feedback Shift Register (LFSR)](./LFSR.sv)
-- [Linear Feedback Shift Register (LFSR) TB](./LFSR_TB.sv)
+- [CA cell](./CA_Cell.sv)
+- [CA_Array](./CA_Array.sv)
+- [CA_PRNG](./CA_PRNG.sv)
+- [High_arch_PRNG instantiating multiple CA_PRNG modules](./High_arch_PRNG.sv)
 
-## LFSR Architecture
-Modify the 'TYPE' parameter to select LFSR architecture type:
-- Fibonacci LFSR ('many-to-one') : TYPE='0'.
-- Galois LFSR ('one-to-many') : TYPE='1'.
-- Extending number of possible states in the Fibonacci architecture : EXTEND='1'.
+## CA-based PRNG Architecture Parameters
+- ARRAY_WIDTH : Width of the one-dimensional CA grid
+- NEIGHBORHOOD : Number of neuighboring cells
+- RULE : Cellular automaton rule
+- N : Random number width
+- LOCATION : Bit location for random number generation
 
 ## Testbench
 
-- The testbench comprises two maximum length LFSR cases (8-bit and 16-bit).
-- The seed in both cases is 'd1. The seed value and the tap locations can be changed via the parameters in the TB file. 
-- The LFSR output words are manually extracted from QuestaSim to a text file and plotted as a dynamic histogram to visualize the LFSR operation as follows:
+- 100 iterations of three PRNG with different CA rules ('rule 30', 'rule 60', 'rule 150') 
 
-1.	Maximum-length 8-bit conventional Fibonacci LFSR ( $(2^n-1)$ states )
-	
-	![8_bit_Fibonacci_LFSR](./docs/8_bit_Fibonacci.gif) 
+	![Terminal](./docs/terminal.JPG) 
 
-2.	Maximum-length 8-bit Galois LFSR ( $(2^n-1)$ states )
-	
-	![8_bit_Galios_LFSR](./docs/8_bit_Galois.gif) 
 
 ## Support
 
