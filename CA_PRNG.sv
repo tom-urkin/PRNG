@@ -21,7 +21,7 @@ CA_Array #(.ARRAY_WIDTH(ARRAY_WIDTH),.RULE(RULE),.NEIGHBORHOOD(NEIGHBORHOOD)) m0
                                                                                  .i_clk(i_clk),
                                                                                  .i_arr_initial_value(i_arr_initial_value),
                                                                                  .o_sig(o_sig)
-);
+                                                                                 );
 
 //N-bit Random number generation
 always @(posedge i_clk or negedge i_rst)
