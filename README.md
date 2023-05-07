@@ -5,11 +5,12 @@
 Implementention in SystemVerilog of __CA-based PRNG__.  
 
 Principle of operation of 1D cellular automaton can be found in [Mathworld](https://mathworld.wolfram.com/ElementaryCellularAutomaton.html).
-Programmable CA-based PRNG
--Configurable number of CA array
--Configurable number of neighbors
--Configurable CA rule (i.e. 'rule 30', 'rule 150', etc.)
--Configurable pseudo random number width
+Programmable CA-based PRNG with:
+
+- Configurable number of CA array
+- Configurable number of neighbors
+- Configurable CA rule (i.e. 'rule 30', 'rule 150', etc.)
+- Configurable pseudo random number width
 
 - Conceptual block diagram of a CA-based PRNG module:
 
