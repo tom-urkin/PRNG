@@ -13,7 +13,7 @@ Programmable CA-based PRNG
 
 - Conceptual block diagram of a CA-based PRNG module:
 
-	![CA_PRNG](./docs/terminal.JPG) 
+	![CA_PRNG](./docs/PRNG.jpg) 
 
 ## Get Started
 
